@@ -89,7 +89,7 @@ PyTorch wheel 已包含所需 cuDNN，因此不需要另外全局安装 cuDNN。
 
 ```powershell
 conda activate yolov
-conda install -c nvidia cuda-toolkit=11.8 -y
+conda install -c nvidia/label/cuda-11.8.0 cuda-toolkit=11.8.0 -y
 ```
 
 验证：
@@ -242,3 +242,10 @@ python -c "import tensorrt as trt; print('TensorRT:', trt.__version__)"
 
 ```powershell
 python -c "import numpy, cv2, torch, onnx, tensorrt; print('NumPy:', numpy.__version__); print('OpenCV:', cv2.__version__); print('PyTorch:', torch.__version__); print('CUDA:', torch.version.cuda); print('cuDNN:', torch.backends.cudnn.version()); print('GPU:', torch.cuda.get_device_name(0)); print('ONNX:', onnx.__version__); print('TensorRT:', tensorrt.__version__)"
+```
+
+所有依赖安装完成后，再强制恢复一次 NumPy，避免像今天一样被升级到 2.2.6：
+```powershell
+python -m pip install --no-cache-dir --force-reinstall --no-deps "numpy==1.26.4"
+python -m pip check
+```
