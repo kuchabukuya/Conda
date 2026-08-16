@@ -1,5 +1,7 @@
 # Conda
+
 在自己的conda环境里面配置单独的cuda-toolkit和TensorRT
+
 # Windows + MX110 搭建 YOLO TensorRT 8.5 环境
 
 本文记录在 Windows 上为 NVIDIA GeForce MX110 搭建独立 YOLO TensorRT 环境的完整过程。
@@ -87,7 +89,7 @@ PyTorch wheel 已包含所需 cuDNN，因此不需要另外全局安装 cuDNN。
 
 ```powershell
 conda activate yolov
-conda install -c nvidia cuda-toolkit=11.8 -y****conda install -c nvidia/label/cuda-11.8.0 cuda-toolkit=11.8.0 -y
+conda install -c nvidia cuda-toolkit=11.8 -y
 ```
 
 验证：
